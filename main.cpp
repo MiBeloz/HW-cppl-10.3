@@ -27,23 +27,31 @@ int main() {
 
 template<typename T>
 void print_ptr(T& ptr, T& ptr2) {
-	std::cout << "\tАдрес: " << ptr << std::endl;
+	std::cout << "\tАдрес unique_prt1: " << ptr << std::endl;
+	std::cout << "\tЗначение unique_prt1: " << *ptr << std::endl << std::endl;
 
-	std::cout << "\tЗначение: " << *ptr << std::endl << std::endl;
+	std::cout << "\tАдрес unique_prt2: " << ptr2 << std::endl;
+	std::cout << "\tЗначение unique_prt2: " << *ptr2 << std::endl << std::endl;
 
-	std::cout << "\tМетод 'get()': " << ptr.get() << " : " << *ptr << std::endl;
-	std::cout << "\tМетод 'get()' у unique_prt2: " << ptr2.get() << " : " << *ptr2 << std::endl << std::endl;
+	std::cout << "\tМетод 'get()' для unique_prt1: " << ptr.get() << " : " << *ptr << std::endl;
+	std::cout << "\tМетод 'operator->' для unique_prt2: " << ptr2.get() << " : " << *ptr2 << std::endl;
 	
-	std::cout << "\tМетод 'swap()': " << std::endl;
+	std::cout << "\tМетод 'swap()'... " << std::endl;
 	ptr.swap(ptr2);
-	std::cout << "\tМетод 'get()': " << ptr.get() << " : " << *ptr << std::endl;
-	std::cout << "\tМетод 'get()' у unique_prt2: " << ptr2.get() << " : " << *ptr2 << std::endl << std::endl;
 
-	std::cout << "\tАдрес: " << ptr << std::endl;
+	std::cout << "\tМетод 'get()' для unique_prt1: " << ptr.get() << " : " << *ptr << std::endl;
+	std::cout << "\tМетод 'operator->' для unique_prt2: " << ptr2.get() << " : " << *ptr2 << std::endl << std::endl;
 
+	std::cout << "\tАдрес unique_prt1: " << ptr << std::endl;
 	std::cout << "\tМетод 'operator bool()': " << std::boolalpha << ptr.operator bool() << std::endl;
-	std::cout << "\tМетод 'reset()': " << std::endl;
+	std::cout << "\tМетод 'reset()'... " << std::endl;
 	ptr.reset();
 	std::cout << "\tМетод 'operator bool()': " << std::boolalpha << ptr.operator bool() << std::endl;
-	std::cout << "\tАдрес: " << ptr << std::endl;
+	std::cout << "\tАдрес unique_prt1: " << ptr << std::endl << std::endl;
+	
+	std::cout << "\tМетод 'reset(new int())' для unique_prt1: " << std::endl;
+	ptr.reset(new int(13));
+
+	std::cout << "\tАдрес unique_prt1: " << ptr << std::endl;
+	std::cout << "\tЗначение unique_prt1: " << *ptr << std::endl << std::endl;
 }
